@@ -1,0 +1,26 @@
+server.port: 19090
+
+spring:
+  rabbitmq:
+    host: localhost
+
+spring.cloud.stream:
+      bindings:
+        #outputDirect
+        direct_output_channel:
+          destination: rabbit.direct #指定exchange
+        fanout_output_channel:
+          destination: rabbit.fanout
+        topic_output_channel:
+          destination: rabbit.topic
+      rabbit.bindings:
+        #outputDirect
+        direct_output_channel.producer:
+          exchangeType: direct #指定路由的类型
+          routing-key-expression: '''demo''' #指定routingKey
+        fanout_output_channel.producer:
+          exchangeType: fanout
+          routing-key-expression: '''demo'''
+        topic_output_channel.producer:
+          exchangeType: topic
+          routing-key-expression: '''demo.#'''

@@ -1,0 +1,26 @@
+server.port: 19091
+
+spring:
+  rabbitmq:
+    host: localhost
+
+spring.cloud.stream:
+      bindings:
+        #input
+        direct_input_channel:
+          destination: rabbit.direct #指定exchange
+          group: demo # 消费者名称，拥有group 默认会持久化队列
+        fanout_input_channel:
+          destination: rabbit.fanout
+          group: demo
+        topic_input_channel:
+          destination: rabbit.topic
+          group: demo.test
+      rabbit.bindings:
+        #input
+        direct_input_channel.consumer:
+          exchangeType: direct  #指定路由的类型
+        fanout_input_channel.consumer:
+          exchangeType: fanout
+        topic_input_channel.consumer:
+          exchangeType: topic
