@@ -7,9 +7,9 @@ spring:
 spring.cloud.stream:
       bindings:
         #input
-        direct_input_channel:
+        direct_input_channel: # 消费者名称
           destination: rabbit.direct #指定exchange
-          group: demo # 消费者名称，拥有group 默认会持久化队列
+          group: demo # 组名称，拥有group 默认会持久化队列
         fanout_input_channel:
           destination: rabbit.fanout
           group: demo

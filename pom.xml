@@ -42,11 +42,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-            <version>${spring-cloud-rabbit.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
